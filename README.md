@@ -5,7 +5,7 @@
 Start the development server with Vite:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ### Linting
