@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# ESLINT base template
 
 ### Development Server
 
