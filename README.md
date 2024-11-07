@@ -1,51 +1,51 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Development Server
 
-Currently, two official plugins are available:
+Start the development server with Vite:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-	languageOptions: {
-		// other options...
-		parserOptions: {
-			project: ['./tsconfig.node.json', './tsconfig.app.json'],
-			tsconfigRootDir: import.meta.dirname,
-		},
-	},
-});
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Linting
+
+To analyze the src folder for code style issues without making any changes, use:
+
+```bash
+npm run lint:check
+```
+
+To automatically fix lint issues in the src folder, use:
+
+```bash
+npm run lint:fix
+```
+
+To format all js, jsx, ts, tsx files with prettier, use:
+
+```bash
+npm run format
+```
+
+To add your own eslint rules:
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-	// Set the react version
-	settings: { react: { version: '18.3' } },
-	plugins: {
-		// Add the react plugin
-		react,
-	},
-	rules: {
-		// other rules...
-		// Enable its recommended rules
-		...react.configs.recommended.rules,
-		...react.configs['jsx-runtime'].rules,
-	},
-});
+const rules = {
+  'react-hooks/rules-of-hooks': 'warn',
+  'react-hooks/exhaustive-deps': 'warn',
+  'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+  'jsx-a11y/no-autofocus': 'warn',
+  '@typescript-eslint/no-useless-constructor': 'warn',
+  '@typescript-eslint/no-empty-function': 'warn',
+  'no-nested-ternary': 'error',
+  'max-depth': ['warn', { max: 4 }],
+  'max-nested-callbacks': ['warn', { max: 4 }],
+  'no-unneeded-ternary': 'warn',
+  'prefer-const': 'warn'
+  //...
+  // Set your own rules 
+};
 ```
 # thebestpdf-eslint-config
